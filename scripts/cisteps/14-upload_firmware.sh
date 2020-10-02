@@ -1,7 +1,8 @@
 #!/bin/bash
 
 [ "${FIRMWARE_VERSION}" == "1806" ] && FIRMWARE_VERSION="18.06"
-post_channel="@nanopi_r2s"
+post_channel="@SatDTH"
+##post_channel="@nanopi_r2s"https://t.me/SatDTH
 released_date="$(env TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M' | sed 's/ /%20/g')%20%2b0800"
 
 cd "${HOST_WORK_DIR}/openwrt_firmware"
