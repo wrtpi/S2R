@@ -16,9 +16,12 @@ env:
 
 name: S2R OpenWrt FastBuild
 
-on: repository_dispatch
+
+on: 
+  repository_dispatch:
   release:
     types: [published]
+
 #  push:
 #    branches: 
 #      - master
@@ -166,6 +169,7 @@ jobs:
     - name: Upload firmware to cloud
       if: env.SKIP_TARGET == '0' && env.TEST != '1' && env.OPT_PACKAGE_ONLY != '1' && steps.organize.outputs.status == 'success' && !cancelled()
       env:
+        TG_BOT_CHAT_ID: ${{secrets.TELEGRAM_CHAT_ID}}
         TG_BOT_TOKEN: ${{secrets.TELEGRAM_BOT_TOKEN}}
         FIRMWARE_VERSION: ${{matrix.target}}
       run: scripts/cisteps/14-upload_firmware.sh
