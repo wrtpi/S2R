@@ -21,6 +21,8 @@ on:
   repository_dispatch:
   release:
     types: [published]
+  watch:
+    types: [started]
 
 #  push:
 #    branches: 
@@ -30,8 +32,6 @@ on:
 
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: [started]
 #  watch:
 #    types: [started]
 
