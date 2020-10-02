@@ -68,6 +68,8 @@ else
 fi
 
 send_message="*Released%20Date:%20${released_date}*%0a*Version:%20${FIRMWARE_VERSION}*%0a%0aSHA256SUM%20Hash%0a${firmware_sha256sum}%0a%0aDownload%20Link%0a${openwrt_downlink}"
+curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "text=${send_message} " "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
+
 curl -s "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?chat_id=${post_channel}&text=${send_message}&disable_web_page_preview=true&parse_mode=Markdown" > "/dev/null" 2>&1
 
 rm -f "ext4-transfer_log" "squashfs-transfer_log" "transfer"
