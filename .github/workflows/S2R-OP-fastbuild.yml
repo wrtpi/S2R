@@ -42,7 +42,7 @@ jobs:
     # Do not modify the trigger methods here, customize them in the `on` section
     if: |
       github.event_name == 'repository_dispatch'
-      || github.event_name == 'deployment'
+      || github.event_name == 'deployment'  || github.event_name == 'started'
     name: ${{matrix.title}} ${{matrix.target}}
     strategy:
       fail-fast: false
